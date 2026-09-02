@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Integrative Dentistry — Holistic and Biological Dentistry in Seattle</title>
+<meta name="description" content="A Seattle holistic dental practice treating the mouth as part of the whole body. Metal-free, mercury-free, BPA-free and fluoride-free care, safe amalgam removal, and biological therapies in a low-toxicity office.">
+
+<style>
+@font-face{font-family:'Open Sans';font-style:normal;font-weight:300 700;font-display:swap;src:url('../../assets/fonts/OpenSans-var.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url('../../assets/fonts/Poppins-400.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url('../../assets/fonts/Poppins-500.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url('../../assets/fonts/Poppins-600.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url('../../assets/fonts/Poppins-700.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+/* Integrative Dentistry — identity tokens.
+   Byte-identical in every variant. Colours, typefaces and the focus ring only.
+   Geometry (scale, spacing, radius, elevation, container, durations) lives in
+   variants/vN/system.css, because that is the only material art direction has.
+
+   The palette is a CLOSED SET of source hexes, from colors.csv:84
+   ("Star white + launch blue"), chosen in the wizard and gated on measured
+   contrast and on measured harmony against the practice's own photography
+   (canonical imagery 82 deg; blue reads complementary).
+
+   A variant re-keys which hex plays ground, ink and accent, and may derive
+   tints and shades from them with color-mix. No variant adds a hue. */
+
+:root {
+  /* Source hexes — the closed set. Named by colour, never by role, so a
+     variant cannot inherit someone else's role mapping by accident. */
+  --paper:      #F8FAFC;  /* star white */
+  --paper-2:    #E9EFF6;  /* derived: the recessed tint of paper */
+  --slate-400:  #94A3B8;
+  --slate-700:  #334155;
+  --slate-800:  #1E293B;
+  --slate-900:  #0F172A;
+  --blue:       #3B82F6;  /* launch blue */
+  --blue-deep:  #1D4ED8;  /* derived shade: the text-bearing sibling of blue */
+  --ink-black:  #0B0B10;
+  --carbon:     #1E1E23;
+  --carbon-2:   #232328;
+  --danger:     #EF4444;
+
+  /* Typefaces. Families only — every size is per variant. */
+  --font-display: 'Poppins', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Open Sans', 'Helvetica Neue', Arial, system-ui, sans-serif;
+
+  /* Focus ring. Never removed, never per variant. */
+  --focus: var(--blue);
+}
+
+/* v5 — Chairside
+   Grid row:    ratio 1.618 · radius 24 · container 960 · gap 48 · brisk
+   Prohibition: never more than two columns
+   Grounded in: grid only
+
+   Palette mapping, re-keyed and re-measured for THIS mapping:
+     ink    paper-2 on carbon     14.34   body and headings
+     ink    paper-2 on carbon-2   13.51   on a panel
+     muted  slate-400 on carbon    6.47   secondary
+     muted  slate-400 on carbon-2  6.10   secondary on a panel
+     accent blue on carbon         4.51   the eyebrow, on the ground only
+     ink-black on blue             5.34   the primary button's label
+   blue on carbon-2 is 4.25 — under AA for normal text, so the accent never
+   appears as type on a panel. That one number is why the eyebrows sit on the
+   ground and the panels carry no colour at all.
+   Accent budget: 2 — the primary button and the section eyebrow. */
+:root{
+  --ratio:1.618;
+  --t-xs:.688rem; --t-sm:.75rem; --t-base:1rem; --t-md:1.618rem;
+  --t-lg:2.618rem; --t-xl:4.236rem;
+  --t-display:clamp(2.618rem,1.2rem + 4.4vw,4.236rem);
+  --lh-tight:1.02; --lh-body:1.66; --tr-display:-0.028em; --tr-body:0;
+  --measure:58ch;
+
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:22px;
+  --s-6:30px; --s-7:40px; --s-8:44px;
+  --section-gap:48px; --card-pad:26px; --element-gap:18px;
+
+  --r-button:24px; --r-card:24px; --r-input:24px; --r-image:24px;
+  --hairline:1px; --bw-2:2px;
+  --shadow-1:none; --shadow-2:none;
+
+  --container:960px; --container-wide:1180px; --container-ultra:1400px; --gutter:24px;
+
+  --d-fast:160ms; --d-base:240ms; --d-slow:320ms;
+  --ease-out:cubic-bezier(.3,.7,.4,1); --ease-inout:cubic-bezier(.5,0,.3,1);
+  --stagger:45ms;
+
+  --ground:var(--carbon);
+  --surface:var(--carbon-2);
+  --outer:var(--ink-black);
+  --ink:var(--paper-2);
+  --ink-muted:var(--slate-400);
+  --accent:var(--blue);
+  --on-accent:var(--ink-black);
+  --rule:rgba(233,239,246,.14);
+  --rule-strong:rgba(233,239,246,.34);
+}
+@media (prefers-reduced-motion:reduce){
+  :root{ --d-fast:1ms; --d-base:1ms; --d-slow:1ms; --stagger:0ms; }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body,h1,h2,h3,h4,p,figure,blockquote,dl,dd,ul,ol{margin:0}
+ul[class],ol[class]{list-style:none;padding:0}
+img,svg,video{display:block;max-width:100%}
+img{height:auto}
+input,button,textarea,select{font:inherit;color:inherit}
+button{background:none;border:0;padding:0;cursor:pointer}
+a{color:inherit}
+table{border-collapse:collapse;width:100%}
+:where(h1,h2,h3){text-wrap:balance}
+:where(p,li){text-wrap:pretty}
+html{scroll-behavior:smooth}
+/* every in-page target clears a sticky masthead rather than hiding under it */
+section[id],main[id]{scroll-margin-top:5.5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--ink);color:var(--ground);
+ padding:var(--s-3,.75rem) var(--s-4,1rem);border-radius:var(--r-input,0);
+ font:600 var(--t-sm,.875rem)/1 var(--font-body,system-ui);min-height:44px;
+ display:inline-flex;align-items:center}
+.skip:focus{left:var(--s-4,1rem);top:var(--s-4,1rem)}
+:focus-visible{outline:var(--bw-2,2px) solid var(--focus,currentColor);outline-offset:3px;
+ border-radius:var(--r-input,0)}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+ clip-path:inset(50%);white-space:nowrap;border:0}
+.js .rv{opacity:0;transform:translate3d(0,10px,0);
+ transition:opacity var(--d-slow,600ms) var(--ease-out,ease),
+            transform var(--d-slow,600ms) var(--ease-out,ease)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv-d1{transition-delay:calc(var(--stagger,60ms)*1)}
+.js .rv-d2{transition-delay:calc(var(--stagger,60ms)*2)}
+.js .rv-d3{transition-delay:calc(var(--stagger,60ms)*3)}
+.js .rv-d4{transition-delay:calc(var(--stagger,60ms)*4)}
+.js .rv-d5{transition-delay:calc(var(--stagger,60ms)*5)}
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+}
+html,body{background:var(--outer)}
+main,.mast,.foot{background:var(--ground)}
+/* A narrow page on an unbounded ground reads as an absence. This one is a sheet:
+   the outer ground is the locked ink-black, the page is carbon, and the join is
+   a hairline. The column stays deliberately narrow — that is the direction, not
+   an oversight — and the space beside it is a margin because there is an edge. */
+.sheet{max-width:var(--container-ultra);margin-inline:auto;
+ border-inline:var(--hairline) solid var(--rule)}
+@media (max-width:1500px){ html,body{background:var(--ground)} .sheet{border-inline:0} }
+
+body{color:var(--ink);font:var(--t-base)/var(--lh-body) var(--font-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:var(--lh-tight);
+ letter-spacing:var(--tr-display)}
+p{max-width:var(--measure)}
+
+.wrap{width:min(100% - var(--gutter)*2, var(--container));max-width:var(--container);margin-inline:auto}
+@media (max-width:560px){ :root{--gutter:16px} }
+@media (min-width:1800px){ .wrap{width:min(100% - var(--gutter)*2, var(--container-wide));max-width:var(--container-wide)} }
+@media (min-width:2400px){ .wrap{width:min(100% - var(--gutter)*2, var(--container-ultra));max-width:var(--container-ultra)} }
+
+.sec{padding-block:var(--section-gap);background:var(--ground)}
+.sec--panel{background:var(--surface)}
+.sec--tight > .wrap{width:min(100% - var(--gutter)*2, 640px)}
+
+@media (max-width:900px){
+  [style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr) !important}
+  [style*="position:sticky"]{position:static !important}
+}
+
+.eyebrow{font:700 var(--t-xs)/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;
+ color:var(--accent);margin-bottom:var(--s-5)}
+.sec--panel .eyebrow{color:var(--ink-muted)}
+.h2{font-size:var(--t-md);margin-bottom:var(--s-5);max-width:18ch}
+.lede{font-size:var(--t-base);color:var(--ink-muted)}
+
+/* Masthead. */
+.mast{position:sticky;top:0;z-index:50;background:var(--ground);
+ border-bottom:var(--hairline) solid var(--rule)}
+.mast__in{display:flex;align-items:center;gap:var(--s-5);min-height:64px}
+.mast__logo{display:inline-flex;align-items:center;min-height:48px;flex:0 0 auto}
+.mast__logo img{width:168px;filter:invert(1)}
+.mast__nav{display:flex;gap:var(--s-5);margin-left:auto;min-width:0}
+.mast__nav a{display:inline-flex;align-items:center;min-height:48px;font-size:var(--t-sm);
+ color:var(--ink-muted);text-decoration:none;transition:color var(--d-fast) var(--ease-out)}
+.mast__nav a:hover{color:var(--ink)}
+.mast__tel{display:inline-flex;align-items:center;min-height:48px;font-size:var(--t-sm);
+ font-weight:600;text-decoration:none;white-space:nowrap}
+@media (max-width:980px){ .mast__nav{display:none} }
+@media (max-width:600px){
+  .mast__in{flex-wrap:wrap;gap:var(--s-3);min-height:0;padding-block:var(--s-3)}
+  .mast__logo img{width:150px}
+  .mast__tel{margin-left:auto}
+  .mast .btn{flex:1 1 100%}
+}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+ padding:0 var(--s-6);border-radius:var(--r-button);font:600 var(--t-sm)/1 var(--font-body);
+ text-decoration:none;transition:background-color var(--d-fast) var(--ease-out)}
+.btn--primary{background:var(--accent);color:var(--on-accent)}
+.btn--primary:hover{background:var(--ink)}
+.btn--line{border:var(--hairline) solid var(--rule-strong);color:var(--ink)}
+.btn--line:hover{background:var(--surface)}
+.row-cta{display:flex;flex-wrap:wrap;gap:var(--s-4)}
+@media (max-width:430px){ .btn{padding:0 var(--s-5);max-width:100%} .row-cta{flex-direction:column;align-items:stretch} }
+
+/* Hero — the biggest type in the set, and almost nothing else. */
+.hero{display:grid;gap:var(--s-7);align-items:center;padding-block:var(--s-7) var(--section-gap)}
+.hero h1{font-size:var(--t-display);margin-bottom:var(--s-5);max-width:9ch}
+.hero__sub{font-size:var(--t-base);color:var(--ink-muted);margin-bottom:var(--s-6);max-width:none}
+.hero__art{border-radius:var(--r-image);overflow:hidden}
+.hero__art img{width:100%;height:clamp(240px,26vw,360px);object-fit:cover}
+.facts{display:grid;gap:var(--s-4);margin-top:var(--s-7)}
+.facts > div{background:var(--surface);border-radius:var(--r-card);padding:var(--s-5) var(--s-6)}
+.facts dt{font:600 var(--t-base)/1.3 var(--font-display);margin-bottom:var(--s-1)}
+.facts dd{margin:0;font-size:var(--t-sm);color:var(--ink-muted);max-width:none}
+
+/* Proof first — the page opens with what patients said. */
+.qs{display:grid;gap:var(--s-6);max-width:62ch;margin-inline:auto}
+.qs figure{margin:0}
+.qs blockquote p{font-family:var(--font-display);font-size:var(--t-md);line-height:1.28;
+ letter-spacing:var(--tr-display);max-width:none}
+.qs figcaption{margin-top:var(--s-4);font:700 var(--t-xs)/1 var(--font-body);letter-spacing:.2em;
+ text-transform:uppercase;color:var(--ink-muted)}
+.qs__head{max-width:62ch;margin-inline:auto}
+.qs__src{max-width:62ch;margin-inline:auto;margin-top:var(--s-6);font-size:var(--t-xs);
+ letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted)}
+
+/* A pinned label rail — the only two-track device this variant allows itself. */
+.rail{align-self:start}
+.stack{display:grid;gap:var(--s-5)}
+.stack > div{background:var(--surface);border-radius:var(--r-card);padding:var(--card-pad)}
+.stack h3{font-size:var(--t-base);margin-bottom:var(--s-3)}
+.stack p{font-size:var(--t-sm);color:var(--ink-muted);max-width:none}
+
+/* Rows. */
+.idx{border-top:var(--hairline) solid var(--rule-strong)}
+.idx li{display:grid;grid-template-columns:minmax(0,3.5ch) minmax(0,1fr);gap:var(--s-2) var(--s-5);
+ padding-block:var(--s-5);border-bottom:var(--hairline) solid var(--rule)}
+.idx .num{font:600 var(--t-sm)/1.6 var(--font-body);color:var(--ink-muted);font-variant-numeric:tabular-nums}
+.idx h3{font-size:var(--t-base)}
+.idx p{grid-column:2;font-size:var(--t-sm);color:var(--ink-muted);max-width:none}
+.idx--pair li{grid-template-columns:minmax(0,18ch) minmax(0,1fr);gap:var(--s-5)}
+.idx--pair p{grid-column:2}
+@media (max-width:640px){
+  .idx--pair li{grid-template-columns:1fr}
+  .idx--pair p{grid-column:1}
+}
+.idx__more{margin-top:var(--s-5);font-size:var(--t-sm);color:var(--ink-muted);max-width:none}
+
+.split{display:grid;gap:var(--s-7)}
+.split__body p{max-width:none}
+.split__body p + p{margin-top:var(--s-5)}
+.pull{margin-top:var(--s-6);background:var(--surface);border-radius:var(--r-card);
+ padding:var(--card-pad);font-family:var(--font-display);font-size:var(--t-base);line-height:1.4;
+ max-width:none}
+.figure{border-radius:var(--r-image);overflow:hidden;background:var(--surface)}
+.figure img{width:100%;height:auto;max-width:512px}
+.figure figcaption{padding:var(--s-5) var(--s-6);font-size:var(--t-sm);color:var(--ink-muted)}
+
+/* People — two columns, never four. */
+.team{display:grid;gap:var(--s-5);grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){ .team{grid-template-columns:1fr} }
+/* On a panel section a panel-coloured card is invisible. The people sit on the
+   ground instead, which is the only surface pair this variant has. */
+.sec--panel .person{background:var(--ground)}
+.person{background:var(--surface);border-radius:var(--r-card);padding:var(--card-pad);
+ display:grid;grid-template-columns:72px minmax(0,1fr);gap:var(--s-5);align-content:start}
+.person img{width:72px;height:72px;object-fit:cover;border-radius:var(--r-button);background:var(--ground)}
+.person h3{font-size:var(--t-base)}
+.person .role{font-size:var(--t-sm);color:var(--ink-muted);margin-top:var(--s-1)}
+.person .bio{grid-column:1/-1;font-size:var(--t-sm);color:var(--ink-muted);max-width:none}
+.person blockquote{grid-column:1/-1;font-family:var(--font-display);font-size:var(--t-base);
+ line-height:1.4}
+.emeritus{margin-top:var(--s-5);font-size:var(--t-sm);color:var(--ink-muted);max-width:none}
+
+/* Prices. */
+.ptable{font-size:var(--t-sm);background:var(--surface);border-radius:var(--r-card);overflow:hidden}
+.ptable caption{text-align:left;padding:var(--s-5) var(--s-6);
+ font:600 var(--t-base)/1.3 var(--font-display)}
+.ptable thead th{font-size:var(--t-xs);letter-spacing:.2em;text-transform:uppercase;
+ color:var(--ink-muted);text-align:left;padding:var(--s-3) var(--s-6)}
+.ptable th,.ptable td{text-align:left;vertical-align:top;padding:var(--s-5) var(--s-6);
+ border-bottom:var(--hairline) solid var(--rule)}
+.ptable tbody th{width:34%;font-weight:700}
+.ptable td{color:var(--ink-muted)}
+.ptable tbody tr:last-child th,.ptable tbody tr:last-child td{border-bottom:0}
+@media (max-width:560px){
+  .ptable thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .ptable tbody th,.ptable tbody td{display:block;width:auto}
+  .ptable tbody th{padding-bottom:var(--s-2);border-bottom:0}
+}
+
+/* Questions. */
+.faqs{max-width:70ch;margin-inline:auto}
+.faqs details{border-bottom:var(--hairline) solid var(--rule)}
+.faqs details:first-child{border-top:var(--hairline) solid var(--rule)}
+.faqs summary{cursor:pointer;list-style:none;padding-block:var(--s-5);display:flex;gap:var(--s-5);
+ align-items:baseline;font:600 var(--t-base)/1.45 var(--font-body);min-height:44px}
+.faqs summary::-webkit-details-marker{display:none}
+.faqs summary::after{content:"+";margin-left:auto;color:var(--ink-muted);font-weight:400}
+.faqs details[open] summary::after{content:"\2013"}
+.faqs details p{padding-bottom:var(--s-5);font-size:var(--t-sm);color:var(--ink-muted);max-width:none}
+.faqs__head{max-width:70ch;margin-inline:auto}
+
+/* Close. */
+.close{max-width:52ch;margin-inline:auto;text-align:center}
+.close h2{font-size:var(--t-md);margin:0 auto var(--s-5);max-width:none}
+.close p{margin-inline:auto;color:var(--ink-muted);max-width:none}
+.close .row-cta{justify-content:center;margin-block:var(--s-6) var(--s-4)}
+.close__note{font-size:var(--t-sm)}
+
+/* Footer. */
+.foot{border-top:var(--hairline) solid var(--rule);padding-block:var(--s-8)}
+.foot__grid{display:grid;gap:var(--s-6);grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:520px){ .foot__grid{grid-template-columns:1fr} }
+.foot img{width:160px;filter:invert(1);margin-bottom:var(--s-4)}
+.foot h2{font-size:var(--t-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-muted);
+ margin-bottom:var(--s-4)}
+.foot p,.foot a,.foot li{font-size:var(--t-sm);color:var(--ink-muted)}
+.foot a{text-decoration:none}
+.foot ul{display:grid;gap:var(--s-1);list-style:none;padding:0}
+.foot ul a{display:inline-flex;align-items:center;min-height:44px}
+.foot a:hover{color:var(--ink)}
+.foot__base{margin-top:var(--s-6);padding-top:var(--s-5);border-top:var(--hairline) solid var(--rule);
+ display:flex;flex-wrap:wrap;gap:var(--s-5);justify-content:space-between;font-size:var(--t-sm);
+ color:var(--ink-muted)}
+.tagline{font-size:var(--t-sm);color:var(--ink-muted)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="sheet">
+<header class="mast"><div class="wrap mast__in">
+  <a class="mast__logo" href="#main"><img data-asset="img.brand.wordmark" src="../../assets/derived/img.brand.wordmark--1120.webp" srcset="../../assets/derived/img.brand.wordmark--560.webp 560w, ../../assets/derived/img.brand.wordmark--1120.webp 1120w" sizes="168px" width="1120" height="111" loading="eager" decoding="async" alt="" aria-hidden="true"><span class="vh" data-copy="brand.name">Integrative Dentistry</span></a>
+  <nav class="mast__nav" aria-label="Main"><a href="#services" data-copy="nav.2">Services</a><a href="#philosophy" data-copy="nav.1">Our Practice</a><a href="#team" data-copy="nav.3">Our Team</a><a href="#office" data-copy="nav.4">Office &amp; Technology</a><a href="#faq" data-copy="nav.5">Questions</a></nav>
+  <a class="mast__tel" href="tel:+12063676453" data-copy="contact.phone">(206) 367-6453</a>
+  <a class="btn btn--primary" href="https://dental4.me/integrativedentistry" data-copy="nav.cta">Book Appointment</a>
+</div></header>
+
+<main id="main">
+
+<section id="hero" class="wrap hero rv" style="grid-template-columns:minmax(0,7fr) minmax(0,5fr)">
+  <div>
+    <p class="eyebrow" data-copy="hero.eyebrow">Seattle · Holistic and Biological Dentistry</p>
+    <h1 data-copy="hero.h1">Modern Holistic Care</h1>
+    <p class="hero__sub" data-copy="hero.sub">We practice dentistry from a naturopathic standpoint, assessing your oral health as a representation of your total health and wellness.</p>
+    <div class="row-cta">
+      <a class="btn btn--primary" href="https://dental4.me/integrativedentistry" data-copy="hero.cta.primary">Book Appointment</a>
+      <a class="btn btn--line" href="tel:+12063676453" data-copy="hero.cta.secondary">Request a Phone Call</a>
+    </div>
+  </div>
+  <figure class="hero__art"><img data-asset="img.hero.landscape.tall" src="../../assets/derived/img.hero.landscape.tall--1200.webp" srcset="../../assets/derived/img.hero.landscape.tall--800.webp 800w, ../../assets/derived/img.hero.landscape.tall--1200.webp 1200w" sizes="(max-width:900px) 92vw, 38vw" width="1200" height="900" loading="eager" decoding="async" alt="Conifers reflected upside down in still teal water"></figure>
+</section>
+
+<section id="reviews" class="sec sec--panel rv">
+  <div class="wrap">
+    <div class="qs__head"><p class="eyebrow" data-copy="proof.eyebrow">What patients say about us</p></div>
+    <div class="qs"><figure><blockquote><p data-copy="testimonial.1.quote">Amazing. Thorough. Did tests and mentioned issues that my other dentists didn't even know about. All dentists should be like Integrative Dentistry.</p></blockquote><figcaption data-copy="testimonial.1.attr">Kristen W.</figcaption></figure><figure><blockquote><p data-copy="testimonial.2.quote">Very accommodating &amp; kind. I really appreciated that the dentist was willing to take the time to make sure all my questions were satisfied even though they were late getting out because of me. The receptionist even helped me find an organic restaurant in the area.</p></blockquote><figcaption data-copy="testimonial.2.attr">Michael T.</figcaption></figure><figure><blockquote><p data-copy="testimonial.3.quote">Watched &quot;Root Cause&quot; on Netflix and realized I needed to see a holistic dentist. They found everything in that documentary that a regular dentist would not find, including hidden infections.</p></blockquote><figcaption data-copy="testimonial.3.attr">Charlene R.</figcaption></figure></div>
+    <p class="qs__src" data-copy="proof.source">Google Reviews</p>
+  </div>
+</section>
+
+<section id="welcome" class="sec rv">
+  <div class="wrap" style="max-width:62ch">
+    <p class="eyebrow" data-copy="welcome.eyebrow">Welcome</p>
+    <h2 class="h2" style="max-width:none" data-copy="welcome.h2">Seattle's Best in Holistic Oral Health</h2>
+    <p class="lede" style="max-width:none" data-copy="welcome.body">We provide a unique perspective and philosophy toward dentistry and your overall health. Our holistic dentists practice dentistry from a naturopathic standpoint, carefully assessing your oral health as a representation of your total health and wellness. We believe in providing our patients with only metal-free, mercury-free, BPA-free, and fluoride-free alternatives to today's more traditional dental treatments. With Integrative Dentistry, our goal is to make sure your whole family enjoys a beautiful smile backed by TRUE WELLNESS.</p>
+    <div class="row-cta" style="margin-top:var(--s-6)">
+      <a class="btn btn--line" href="tel:+12063676453" data-copy="welcome.cta">Request Phone Call</a>
+    </div>
+    <dl class="facts"><div><dt data-copy="hero.proof.1.term">Since 1987</dt><dd data-copy="hero.proof.1.def">No mercury fillings. No fluoride.</dd></div><div><dt data-copy="hero.proof.2.term">60+ years</dt><dd data-copy="hero.proof.2.def">Combined experience across our doctors.</dd></div><div><dt data-copy="hero.proof.3.term">SMART certified</dt><dd data-copy="hero.proof.3.def">IAOMT protocol for safe amalgam removal.</dd></div></dl>
+  </div>
+</section>
+
+<section id="different" class="sec rv">
+  <div class="wrap split" style="grid-template-columns:minmax(0,4fr) minmax(0,7fr)">
+    <div class="rail" style="position:sticky;top:96px">
+      <p class="eyebrow" data-copy="diff.eyebrow">Why we are different</p>
+      <h2 class="h2" data-copy="diff.h2">A different kind of dental experience</h2>
+      <p class="lede" data-copy="diff.intro">Here, our Seattle holistic team of dentists practice dentistry from a holistic and naturopathic standpoint, carefully analyzing your system as a whole instead of a collection of different body parts.</p>
+    </div>
+    <div>
+      <div class="stack">
+        <div><h3 data-copy="diff.1.title">Only biocompatible materials</h3><p data-copy="diff.1.body">We strongly believe in using only the most bio-compatible materials available to minimize your exposure to any toxins that may cause negative systemic problems. We accomplish this by offering metal-free, mercury-free, BPA-free, and fluoride-free alternatives to today's more traditional dental treatments.</p></div><div><h3 data-copy="diff.2.title">Testing before placement</h3><p data-copy="diff.2.body">As an extra measure, we provide compatibility testing, attempting to identify the safest choice for each person, before placing any materials.</p></div><div><h3 data-copy="diff.3.title">Safe amalgam removal</h3><p data-copy="diff.3.body">We take special precautions when removing potentially harmful amalgam fillings, implementing a safe mercury removal protocol to protect our patients. Our practice has met many patients that became sicker upon mercury removal when no precautionary steps were taken.</p></div><div><h3 data-copy="diff.4.title">Coordinated with your other providers</h3><p data-copy="diff.4.body">We provide dental care alongside other medical modalities — general medicine, naturopathy, acupuncture, homeopathy, chiropractic care, nutritional counseling — and coordinate with your other care providers to improve your treatment results. One of the biggest issues in health care today is the lack of coordination between a patient's healthcare providers; we aim to bridge that gap.</p></div>
+      </div>
+      <p class="lede" style="margin-top:var(--s-5);max-width:none" data-copy="diff.closing">We spend time listening to you — your concerns, preferences, ideas, and questions, and hold that ultimately, you are in charge of your body and your treatment.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="sec sec--panel rv">
+  <div class="wrap">
+    <p class="eyebrow" data-copy="svc.eyebrow">What we do</p>
+    <h2 class="h2" data-copy="svc.h2">Conventional dentistry, practiced biologically</h2>
+    <p class="lede" style="margin-bottom:var(--s-6);max-width:none" data-copy="svc.intro">Treatments in areas such as veneers, dental implants, pediatric dentistry, TMJ pain, sleep apnea, safe mercury removal, periodontology, and more, are all completed at the highest level with key components encompassing natural philosophies.</p>
+    <ol class="idx"><li><span class="num" aria-hidden="true">01</span><h3 data-copy="svc.1.title">Safe Mercury Removal</h3><p data-copy="svc.1.body">Amalgam fillings are 50% mercury, a known neurotoxin. All of our providers use the SMART protocol, and your doctor will recommend contacting your naturopath to formulate a detoxification plan before removal begins.</p></li><li><span class="num" aria-hidden="true">02</span><h3 data-copy="svc.2.title">Mercury &amp; BPA-Free Fillings</h3><p data-copy="svc.2.body">We limit the amount of metal dentistry used and choose porcelain and composite resin materials whenever we can to fill a cavity or fix a broken tooth. The composites we use are BPA free.</p></li><li><span class="num" aria-hidden="true">03</span><h3 data-copy="svc.3.title">Zirconia Implants</h3><p data-copy="svc.3.body">Pure zirconia implants offer a highly biocompatible, metal-free solution that combines excellent function with optimal, natural-looking esthetics. These all-ceramic implants form lasting attachments to both bone and soft tissue.</p></li><li><span class="num" aria-hidden="true">04</span><h3 data-copy="svc.4.title">Same-Day Ceramic Crowns</h3><p data-copy="svc.4.body">Our CEREC system designs and fabricates biocompatible custom crowns and onlays in our own office. Rather than wait weeks for a restoration to arrive, we repair the tooth in a single appointment.</p></li><li><span class="num" aria-hidden="true">05</span><h3 data-copy="svc.5.title">Ozone Therapy</h3><p data-copy="svc.5.body">Mixtures of oxygen and ozone introduced to living systems create a therapeutic transient oxidative burst that naturally kills bacteria, viruses, fungi, yeasts and parasites. It can be delivered in trays or as a gas.</p></li><li><span class="num" aria-hidden="true">06</span><h3 data-copy="svc.6.title">Plaque Microscopy</h3><p data-copy="svc.6.body">A quick, non-invasive procedure we use on all of our patients to evaluate periodontal health. It identifies profiles of dental plaque bacteria that correlate with periodontal infection — many cases would otherwise go undetected.</p></li><li><span class="num" aria-hidden="true">07</span><h3 data-copy="svc.7.title">Guided Biofilm Therapy</h3><p data-copy="svc.7.body">A systematic, predictable solution for biofilm management using AIRFLOW technology. Air, heated water and low-abrasive powder combine to break down and flush away biofilm, gently on enamel, gum tissue and restorations.</p></li><li><span class="num" aria-hidden="true">08</span><h3 data-copy="svc.8.title">Airway Optimization</h3><p data-copy="svc.8.body">As much as half our population is affected by sleep-disordered breathing, and many people who suffer some form of it are completely unaware. We evaluate the airway and breathing of all patients, regardless of age.</p></li><li><span class="num" aria-hidden="true">09</span><h3 data-copy="svc.9.title">TMJ Treatment</h3><p data-copy="svc.9.body">Severe headaches, jaw, neck, back and shoulder pain and a wide variety of other symptoms have been associated with Temporo-Mandibular Joint disorder, many of which improve with the right therapy for the jaw joint.</p></li><li><span class="num" aria-hidden="true">10</span><h3 data-copy="svc.10.title">Platelet Rich Fibrin</h3><p data-copy="svc.10.body">PRF is a fully autologous, 100% natural blood concentrate obtained by low-speed centrifugation that accelerates wound healing, enhances tissue regeneration, eliminates infections, and reduces pain and swelling after dental surgery.</p></li><li><span class="num" aria-hidden="true">11</span><h3 data-copy="svc.11.title">Laser Therapy</h3><p data-copy="svc.11.body">Laser therapy relieves pain, enhances circulation, reduces inflammation, boosts immune activity and accelerates natural regenerative healing through visible and infrared light energy.</p></li><li><span class="num" aria-hidden="true">12</span><h3 data-copy="svc.12.title">Intravenous Therapy</h3><p data-copy="svc.12.body">Integrating nutrient-rich IV therapy around dental procedures facilitates tissue healing and supports liver detoxification better than oral supplementation. Administered in-house by Dr. Jeannette Daneals, ND.</p></li></ol>
+    <p class="idx__more" data-copy="svc.more">Also offered: Invisalign · Orthodontics · Myobrace · Myofunctional Therapy · Periodontics · Perio Protect Trays · Saliva Testing · Sedation Dentistry · Dental Anxiety Clearing · Swiss Surgical Technique · Facial Esthetics · Sleep Apnea Treatment · Teledentistry · EBOO · UVBI · Blood Draw Services</p>
+  </div>
+</section>
+
+<section id="philosophy" class="sec rv">
+  <div class="wrap split" style="grid-template-columns:minmax(0,5fr) minmax(0,7fr)">
+    <div>
+      <p class="eyebrow" data-copy="phil.eyebrow">Biological dentistry</p>
+      <h2 class="h2" data-copy="phil.h2">Dentistry performed in concert with the biological system</h2>
+      <figure class="figure" style="margin-top:var(--s-6)">
+        <img data-asset="img.work.microscopy" src="../../assets/derived/img.work.microscopy--512.webp" srcset="../../assets/derived/img.work.microscopy--512.webp 512w" sizes="(max-width:900px) 92vw, 38vw" width="512" height="309" loading="lazy" decoding="async" alt="A clinician in scrubs pointing at live plaque microscopy on a chairside monitor">
+        <figcaption data-copy="fig.microscopy.caption">Live plaque microscopy on the chairside monitor — the bacteria in your own mouth, at your own appointment.</figcaption>
+      </figure>
+    </div>
+    <div class="split__body">
+      <p data-copy="phil.body.1">For more than 30 years, our doctors have extensively researched and practiced dentistry with a biological emphasis. Biological dentistry recognizes the links between oral health and general health and appreciates that any oral issues or materials placed in the mouth can have lasting effects on other systems in the body.</p>
+      <p data-copy="phil.body.2">As biological dentists, we work with like-minded healthcare professionals to analyze material compatibility, provide nutritional support, and identify systemic detoxification steps to help remove toxins from the body.</p>
+      <p data-copy="phil.body.3">Beyond the mercury issue we also address posture, opening the airway, TMJ function, sleep apnea, cranial balance, the possible effects of past dental work, issues relating to root canals and past teeth extractions, and effects of poor diet, sleep, and lifestyle. Nutrition counseling, detoxification, herbal medicine, acupuncture, massage, and homeopathy all play integral roles in our practice philosophy.</p>
+      <p class="pull" data-copy="phil.pull">Obviously, we have not placed any mercury fillings or used fluoride in our practice since 1987.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="sec sec--panel rv">
+  <div class="wrap">
+    <p class="eyebrow" data-copy="team.eyebrow">Your holistic dentists</p>
+    <h2 class="h2" data-copy="team.h2">Three doctors, three hygienists, one philosophy</h2>
+    <p class="lede" style="margin-bottom:var(--s-6);max-width:none" data-copy="team.intro">Through extensive personal research and continuing studies, our team of doctors has created a soothing and effective dental environment that encompasses wellness, treats the issues relating to oral health, and promotes balance for your whole system.</p>
+    <div class="team" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <article class="person">
+        <img data-asset="img.team.birrer" src="../../assets/derived/img.team.birrer--340.webp" srcset="../../assets/derived/img.team.birrer--300.webp 300w, ../../assets/derived/img.team.birrer--340.webp 340w" sizes="72px" width="340" height="302" loading="lazy" decoding="async" alt="Dr. Bramley Birrer">
+        <div><h3 data-copy="team.1.name">Dr. Bramley Birrer</h3><p class="role" data-copy="team.1.role">D.D.S. — UCLA School of Dentistry</p></div>
+        <blockquote data-copy="team.1.quote">As my patient, you are not just another set of teeth; you are another conversation, another story, another friendship. By knowing who you are, I can know what your teeth mean to you, and this is where dentistry begins.</blockquote>
+        <p class="bio" data-copy="team.1.bio">Dr. Birrer received his D.D.S. from UCLA with Outstanding Achievement in Public Health, and a B.A. in Philosophy, summa cum laude, also from UCLA. He is SMART certified with the IAOMT and works in same-day all-ceramic fillings and crowns using CEREC CAD/CAM — strong, long-lasting, natural-looking restorations without metal, without BPA, and without a second appointment.</p>
+      </article><article class="person">
+        <img data-asset="img.team.cao" src="../../assets/derived/img.team.cao--300.webp" srcset="../../assets/derived/img.team.cao--300.webp 300w" sizes="72px" width="300" height="300" loading="lazy" decoding="async" alt="Dr. Christine Cao">
+        <div><h3 data-copy="team.2.name">Dr. Christine Cao</h3><p class="role" data-copy="team.2.role">D.M.D. — Tufts University School of Dental Medicine</p></div>
+        
+        <p class="bio" data-copy="team.2.bio">Born and raised in Southern California, Dr. Cao earned her doctorate from Tufts and returned to complete Invisalign certification and a General Practice Residency at Harbor-UCLA Medical Center, where her training included implant restorations and cosmetics. She volunteers at free clinic days and on mission trips, and believes every patient should be treated to her fullest potential — taking into account all their desires, capabilities and sensitivities to devise the most appropriate and individualized treatment plan.</p>
+      </article><article class="person">
+        <img data-asset="img.team.do" src="../../assets/derived/img.team.do--340.webp" srcset="../../assets/derived/img.team.do--300.webp 300w, ../../assets/derived/img.team.do--340.webp 340w" sizes="72px" width="340" height="349" loading="lazy" decoding="async" alt="Dr. David Do">
+        <div><h3 data-copy="team.3.name">Dr. David Do</h3><p class="role" data-copy="team.3.role">D.D.S. — University of the Pacific</p></div>
+        
+        <p class="bio" data-copy="team.3.bio">Dr. Do graduated in 2012 from the University of the Pacific, completed implant training at the Pacific Institute in Vancouver, BC, and is versed in Botox through the American Academy of Facial Aesthetics. Described by colleagues as humble and calm, and &quot;the kindest doctor,&quot; he is known for his spirit of compassion, always honoring his patients' needs. He is excited about practicing whole-body dentistry because he believes the right kind of care has the power to enhance both the physical and emotional aspects of health and well-being.</p>
+      </article><article class="person">
+        <img data-asset="img.team.daneals" src="../../assets/derived/img.team.daneals--300.webp" srcset="../../assets/derived/img.team.daneals--300.webp 300w" sizes="72px" width="300" height="300" loading="lazy" decoding="async" alt="Dr. Jeannette Daneals, ND">
+        <div><h3 data-copy="team.4.name">Dr. Jeannette Daneals, ND</h3><p class="role" data-copy="team.4.role">Naturopathic physician — National College of Natural Medicine</p></div>
+        
+        <p class="bio" data-copy="team.4.bio">Dr. Daneals graduated from the National College of Natural Medicine in 2016 and completed a two-year residency at Cameron Wellness Center, where she became proficient at intravenous therapy and earned an advanced BHRT certification. She administers complex intravenous therapies including Extracorporeal Blood Oxygenation-Ozonation and photodynamic therapy, and has earned the nickname &quot;the Vein Whisperer.&quot;</p>
+      </article>
+    </div>
+    <p class="eyebrow" style="margin-top:var(--s-7)" data-copy="team.hyg.eyebrow">Your hygienists</p>
+    <div class="team">
+      <article class="person">
+        <img data-asset="img.team.emily" src="../../assets/derived/img.team.emily--600.webp" srcset="../../assets/derived/img.team.emily--300.webp 300w, ../../assets/derived/img.team.emily--600.webp 600w" sizes="72px" width="600" height="619" loading="lazy" decoding="async" alt="Emily, dental hygienist">
+        <div><h3 data-copy="team.hyg.1.name">Emily</h3></div>
+        
+        <p class="bio" data-copy="team.hyg.1.bio">Emily received her Bachelor's in Biology at the University of Oregon and her Associate's in Dental Hygiene at Shoreline Community College. &quot;I went into dental hygiene because I, myself, have dental anxiety. I want to help others overcome this common phobia and have a comfortable and fearless experience.&quot;</p>
+      </article><article class="person">
+        <img data-asset="img.team.lydia" src="../../assets/derived/img.team.lydia--552.webp" srcset="../../assets/derived/img.team.lydia--300.webp 300w, ../../assets/derived/img.team.lydia--552.webp 552w" sizes="72px" width="552" height="552" loading="lazy" decoding="async" alt="Lydia, dental hygienist">
+        <div><h3 data-copy="team.hyg.2.name">Lydia</h3></div>
+        
+        <p class="bio" data-copy="team.hyg.2.bio">Lydia is from Bellingham and received her Dental Hygiene certification at Bellingham Technical College. &quot;I am passionate about providing high quality care for you that suits your needs while also building strong personal relationships.&quot;</p>
+      </article><article class="person">
+        <img data-asset="img.team.morgan" src="../../assets/derived/img.team.morgan--620.webp" srcset="../../assets/derived/img.team.morgan--300.webp 300w, ../../assets/derived/img.team.morgan--620.webp 620w" sizes="72px" width="620" height="620" loading="lazy" decoding="async" alt="Morgan, dental hygienist">
+        <div><h3 data-copy="team.hyg.3.name">Morgan</h3></div>
+        
+        <p class="bio" data-copy="team.hyg.3.bio">Morgan received her Bachelor of Science in Dental Hygiene from Pacific University. &quot;While you're with me in my chair, I promise to create an environment that feels comfortable and safe for you, being mindful of those with dental anxiety.&quot;</p>
+      </article>
+    </div>
+    <p class="emeritus" data-copy="team.emeritus">After 46 years of service and advocacy in biological dentistry, Dr. Paul Rubin has retired to focus on dental education. One of the early members of the IAOMT, he abandoned mercury amalgam in 1980, was honored as a Fellow in 1992 and a Master in 2007, and ran the first dental office in Washington State to install a mercury-capturing system.</p>
+  </div>
+</section>
+
+<section id="office" class="sec rv">
+  <div class="wrap split" style="grid-template-columns:minmax(0,4fr) minmax(0,7fr)">
+    <div class="rail" style="position:sticky;top:96px">
+      <p class="eyebrow" data-copy="office.eyebrow">Our office</p>
+      <h2 class="h2" data-copy="office.h2">The building is part of the treatment</h2>
+      <p class="pull" data-copy="fig.office.caption">Treatment rooms are divided by Lumicor resin panels embedded with plant material, made from renewable resources.</p>
+    </div>
+    <div>
+      <p class="lede" style="max-width:none" data-copy="office.body.1">Newly remodeled, our ultra-modern facility is located in the Northgate area of Seattle. Many materials used in construction were influenced by the LEED certification system to foster a green environment and provide chemically and environmentally sensitive patients a reaction-free experience.</p>
+      <p class="lede" style="margin-top:var(--s-5);max-width:none" data-copy="office.body.2">We have been told by many chronic fatigue and chemically sensitive patients that the place smells clean and they experience no reactions when coming to our office. We ask that all who enter our office refrain from wearing any fragrances out of respect for those more sensitive people.</p>
+      <ol class="idx idx--pair"><li><h3 data-copy="office.spec.1.term">Low VOC paints</h3><p data-copy="office.spec.1.def">Used exclusively throughout our office.</p></li><li><h3 data-copy="office.spec.2.term">Bamboo, cork and marmoleum</h3><p data-copy="office.spec.2.def">EcoTimber bamboo in the hallway and massage room, Expanko cork in the labs, Forbo Marmoleum in the treatment rooms.</p></li><li><h3 data-copy="office.spec.3.term">Formaldehyde-free plywood</h3><p data-copy="office.spec.3.def">With the least toxic glues in cabinetry, flooring and counter surfaces.</p></li><li><h3 data-copy="office.spec.4.term">New HVAC and filtration</h3><p data-copy="office.spec.4.def">All new ducting was installed to help keep our air quality fresh, clean, and healthy, with top-of-the-line air and water filtration.</p></li></ol>
+      <ol class="idx idx--pair"><li><h3 data-copy="office.tech.1.term">3-D Galileos Cone Beam</h3><p data-copy="office.tech.1.def">Images the whole skull and assesses airway, sinus, nose, teeth and jaws in three dimensions.</p></li><li><h3 data-copy="office.tech.2.term">Digital X-Rays</h3><p data-copy="office.tech.2.def">A sensor in place of film means a minimal amount of radiation, and no developing chemicals.</p></li><li><h3 data-copy="office.tech.3.term">TekScan and BioPak</h3><p data-copy="office.tech.3.def">Scientific recordings of your TMJ bite, head and neck, to diagnose headaches, muscle fatigue and craniofacial imbalance.</p></li><li><h3 data-copy="office.tech.4.term">CEREC CAD/CAM</h3><p data-copy="office.tech.4.def">Designs and mills a biocompatible crown or onlay in the office, in one visit.</p></li><li><h3 data-copy="office.tech.5.term">Picasso soft-tissue laser</h3><p data-copy="office.tech.5.def">Makes gum contouring, periodontal cleaning and cold sore treatment comfortable, with minimal bleeding.</p></li><li><h3 data-copy="office.tech.6.term">Intra-oral cameras</h3><p data-copy="office.tech.6.def">Video and stills of your own mouth, so you can see what we are describing.</p></li></ol>
+    </div>
+  </div>
+</section>
+
+<section id="values" class="sec sec--panel sec--tight rv">
+  <div class="wrap">
+    <p class="eyebrow" data-copy="values.eyebrow">Our values</p>
+    <h2 class="h2" data-copy="values.h2">Twenty-five words we actually run the practice on</h2>
+    <ol class="idx idx--pair"><li><h3 data-copy="values.1.term">Trust</h3><p data-copy="values.1.def">Speak the truth. Be transparent. Keep my word.</p></li><li><h3 data-copy="values.2.term">Wellness</h3><p data-copy="values.2.def">Health is the first wealth. Prevention is the best medicine.</p></li><li><h3 data-copy="values.3.term">Education</h3><p data-copy="values.3.def">Seek the truth. Read the research. When I know better, I do better.</p></li><li><h3 data-copy="values.4.term">Connection</h3><p data-copy="values.4.def">Meet people where they are. They remember 8% of what I say, and 100% of how I make them feel.</p></li><li><h3 data-copy="values.5.term">Preparation</h3><p data-copy="values.5.def">Measure twice. Expect curveballs. Overcome the obstacle before the obstacle.</p></li><li><h3 data-copy="values.6.term">Simplicity</h3><p data-copy="values.6.def">Keep it simple. Make it effortless. Progress by subtraction.</p></li></ol>
+  </div>
+</section>
+
+<section id="visit" class="sec rv">
+  <div class="wrap">
+    <p class="eyebrow" data-copy="visit.eyebrow">Your first visit</p>
+    <h2 class="h2" data-copy="visit.h2">What to expect, and what it costs</h2>
+    <div class="split" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+      <ol class="idx idx--pair"><li><h3 data-copy="visit.1.term">Book online or by phone</h3><p data-copy="visit.1.def">Many people prefer to schedule online since it lets you see all of our available appointments. Or call or text us at (206) 367-6453.</p></li><li><h3 data-copy="visit.2.term">Ninety minutes with the doctor</h3><p data-copy="visit.2.def">Your initial exam is about an hour and a half. If you have a cleaning scheduled alongside it, allow about another hour.</p></li><li><h3 data-copy="visit.3.term">Bring what you already have</h3><p data-copy="visit.3.def">Send us x-rays from your previous office — we actually prefer them. We don't want to take x-rays when they are not necessary.</p></li><li><h3 data-copy="visit.4.term">A plan built for you</h3><p data-copy="visit.4.def">Your doctor, their assistant and our treatment coordinator work together to give you a treatment plan curated specifically to what you need.</p></li></ol>
+      <table class="ptable"><caption>What a first appointment costs</caption><thead><tr><th scope="col">Item</th><th scope="col">Detail</th></tr></thead><tbody><tr><th scope="row" data-copy="price.exam.term">Comprehensive examination</th><td data-copy="price.exam.def">$315, about an hour and a half. Any x-rays needed during this exam are taken at no additional charge.</td></tr><tr><th scope="row" data-copy="price.cleaning.term">Cleanings</th><td data-copy="price.cleaning.def">From $200, usually about an hour. Patients with gingivitis or periodontal disease can expect a higher cost if a deeper cleaning is needed.</td></tr><tr><th scope="row" data-copy="price.insurance.term">Insurance</th><td data-copy="price.insurance.def">We are out-of-network with all insurances, but we do bill insurances that accept claims from non-contracted dentists. We collect for services performed that day, and the insurance is asked to reimburse you directly.</td></tr></tbody></table>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="sec sec--panel rv">
+  <div class="wrap">
+    <div class="faqs__head">
+      <p class="eyebrow" data-copy="faq.eyebrow">Questions</p>
+      <h2 class="h2" data-copy="faq.h2">The things people ask before they call</h2>
+    </div>
+    <div class="faqs"><details open><summary><span data-copy="faq.1.q">Does your office remove amalgam / mercury / silver fillings?</span></summary><p data-copy="faq.1.a">We do. All of our providers use the SMART protocol to safely remove these fillings. When your doctor first treatment-plans your amalgam removal, they will recommend getting in contact with your naturopath to formulate a detoxification plan. Our office also offers naturopathic IV therapy options that can be completed before or after your removal procedure.</p></details><details><summary><span data-copy="faq.2.q">What material does your office use for cavity fillings?</span></summary><p data-copy="faq.2.a">Our office uses composite materials to fill cavities. The material is BPA free. We use some of the most popular brands in holistic dentistry, including Gradia SO, Admira Fusion, and Empress.</p></details><details><summary><span data-copy="faq.3.q">I've been told I need a root canal. What are my options?</span></summary><p data-copy="faq.3.a">We can recommend time and supportive measures within our toolkit to help prolong needing the procedure and re-evaluate afterwards. If there is pain or swelling, that also factors in. We do feel that most of the time, root canals are not the best option for some people; the alternative is to extract the tooth and either place an implant or bridge. The first step is an exam to evaluate what options are available to you.</p></details><details><summary><span data-copy="faq.4.q">Does your office accept insurance?</span></summary><p data-copy="faq.4.a">Our office does accept insurance. We are out-of-network with all insurances, but we do bill insurances that accept claims from non-contracted dentists. We collect for all services performed on that day, and the insurance is asked to reimburse you back directly — which insurances tend to do when billed by an out-of-network provider.</p></details><details><summary><span data-copy="faq.5.q">Does your office see children?</span></summary><p data-copy="faq.5.a">Our office welcomes patients 13 years and older. For children under 13, we recommend seeing a pediatric dentist to ensure they receive specialized care tailored to their needs. If you are already a patient of ours and would like to keep the care for your family in one location, we can certainly accommodate that and will happily see your child in that case.</p></details><details><summary><span data-copy="faq.6.q">Can I get a second opinion on a treatment plan from another office?</span></summary><p data-copy="faq.6.a">Absolutely. You can send us a copy of your treatment plan, or give us the codes they gave you over the phone, and we can tell you the cost of the equivalent in our office. Bear in mind that unless we see you for an exam first, we cannot say that the quoted costs are final, as we have not evaluated you ourselves yet.</p></details><details><summary><span data-copy="faq.7.q">What are your office hours?</span></summary><p data-copy="faq.7.a">We are open Monday through Thursday from 7 AM to 4 PM. To see our current availability, book online with us or call us at (206) 367-6453.</p></details><details><summary><span data-copy="faq.8.q">I've moved away. Can you recommend a holistic dentist near me?</span></summary><p data-copy="faq.8.a">We are sad to see you go. The best way to find a dentist who likely shares the same holistic values we do is the Dentist Finder on IAOMT.org — there you can see the nearest dentists who follow the same protocols our office does.</p></details></div>
+  </div>
+</section>
+
+<section id="book" class="sec rv">
+  <div class="wrap"><div class="close">
+    <p class="eyebrow" data-copy="cta.final.eyebrow">Northgate, Seattle</p>
+    <h2 data-copy="cta.final.h2">Take a step in the right direction</h2>
+    <p data-copy="cta.final.body">If you have been searching for a caring and experienced holistic dentist in Seattle, we invite you to request your personal consultation today.</p>
+    <div class="row-cta">
+      <a class="btn btn--primary" href="https://dental4.me/integrativedentistry" data-copy="cta.final.primary">Book Appointment</a>
+      <a class="btn btn--line" href="tel:+12063676453" data-copy="cta.final.secondary">Request Phone Call</a>
+    </div>
+    <p class="close__note" data-copy="cta.final.note">If you prefer to speak to a team member, please call (206) 367-6453</p>
+  </div></div>
+</section>
+
+</main>
+
+<footer class="foot"><div class="wrap">
+  <div class="foot__grid">
+    <div><img data-asset="img.brand.wordmark" src="../../assets/derived/img.brand.wordmark--1120.webp" srcset="../../assets/derived/img.brand.wordmark--560.webp 560w, ../../assets/derived/img.brand.wordmark--1120.webp 1120w" sizes="160px" width="1120" height="111" loading="lazy" decoding="async" alt="" aria-hidden="true"><p class="tagline" data-copy="brand.tagline">Whole-Body Wellness · Natural Alternatives · Biocompatible · Green Living</p></div>
+    <div><h2>Visit</h2><p data-copy="contact.neighborhood">Northgate</p><p data-copy="contact.address">9730 3rd Ave NE, Seattle, WA 98115</p><p data-copy="contact.hours">Mon – Thu: 7am–4pm</p>
+      <ul style="margin-top:var(--s-4)"><li><a href="tel:+12063676453"><span data-copy="contact.phone">(206) 367-6453</span></a></li><li><a href="mailto:info@mitchmarderdds.com" data-copy="contact.email">info@mitchmarderdds.com</a></li></ul></div>
+  </div>
+  <div class="foot__base"><span data-copy="footer.legal">© Integrative Dentistry. All rights reserved.</span><span data-copy="footer.hipaa">HIPAA Notice of Privacy Practices</span></div>
+</div></footer>
+</div>
+<script>document.documentElement.classList.add('js');
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  var show=function(el){el.classList.add('in')};
+  if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){
+    els.forEach(show);return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})
+  },{rootMargin:'0px 0px -10% 0px'});
+  els.forEach(function(el){io.observe(el)});
+  // Backstop: nothing stays hidden because one callback never fired.
+  setTimeout(function(){els.forEach(show)},3000);
+})();</script>
+
+</body>
+</html>

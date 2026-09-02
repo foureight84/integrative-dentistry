@@ -1,0 +1,4 @@
+# Remotion project dependencies — reinstall with `npm i` in motion/
+motion/node_modules/
+
+.DS_Store

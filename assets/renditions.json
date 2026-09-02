@@ -1,0 +1,239 @@
+{
+  "img.brand.wordmark": {
+    "source": "assets/source/logo.png",
+    "natural": {
+      "w": 1412,
+      "h": 140
+    },
+    "renditions": [
+      {
+        "w": 560,
+        "h": 56,
+        "file": "assets/derived/img.brand.wordmark--560.webp"
+      },
+      {
+        "w": 1120,
+        "h": 111,
+        "file": "assets/derived/img.brand.wordmark--1120.webp"
+      }
+    ]
+  },
+  "img.brand.mark": {
+    "source": "assets/source/IDNewLogoFINAL-150x150-1.png",
+    "natural": {
+      "w": 150,
+      "h": 150
+    },
+    "renditions": [
+      {
+        "w": 150,
+        "h": 150,
+        "file": "assets/derived/img.brand.mark--150.webp"
+      }
+    ]
+  },
+  "img.team.birrer": {
+    "source": "assets/source/BramleyCircle-340.png",
+    "natural": {
+      "w": 340,
+      "h": 302
+    },
+    "renditions": [
+      {
+        "w": 300,
+        "h": 266,
+        "file": "assets/derived/img.team.birrer--300.webp"
+      },
+      {
+        "w": 340,
+        "h": 302,
+        "file": "assets/derived/img.team.birrer--340.webp"
+      }
+    ]
+  },
+  "img.team.cao": {
+    "source": "assets/source/CaoCircle.png",
+    "natural": {
+      "w": 300,
+      "h": 300
+    },
+    "renditions": [
+      {
+        "w": 300,
+        "h": 300,
+        "file": "assets/derived/img.team.cao--300.webp"
+      }
+    ]
+  },
+  "img.team.do": {
+    "source": "assets/source/DavidDoHeadshot2-340.png",
+    "natural": {
+      "w": 340,
+      "h": 349
+    },
+    "renditions": [
+      {
+        "w": 300,
+        "h": 308,
+        "file": "assets/derived/img.team.do--300.webp"
+      },
+      {
+        "w": 340,
+        "h": 349,
+        "file": "assets/derived/img.team.do--340.webp"
+      }
+    ]
+  },
+  "img.team.daneals": {
+    "source": "assets/source/jeannette.png",
+    "natural": {
+      "w": 300,
+      "h": 300
+    },
+    "renditions": [
+      {
+        "w": 300,
+        "h": 300,
+        "file": "assets/derived/img.team.daneals--300.webp"
+      }
+    ]
+  },
+  "img.team.emily": {
+    "source": "assets/source/EmilyCircleHeadshot.png",
+    "natural": {
+      "w": 694,
+      "h": 716
+    },
+    "renditions": [
+      {
+        "w": 300,
+        "h": 310,
+        "file": "assets/derived/img.team.emily--300.webp"
+      },
+      {
+        "w": 600,
+        "h": 619,
+        "file": "assets/derived/img.team.emily--600.webp"
+      }
+    ]
+  },
+  "img.team.lydia": {
+    "source": "assets/source/LydiaCircleHeadshot.png",
+    "natural": {
+      "w": 552,
+      "h": 552
+    },
+    "renditions": [
+      {
+        "w": 300,
+        "h": 300,
+        "file": "assets/derived/img.team.lydia--300.webp"
+      },
+      {
+        "w": 552,
+        "h": 552,
+        "file": "assets/derived/img.team.lydia--552.webp"
+      }
+    ]
+  },
+  "img.team.morgan": {
+    "source": "assets/source/MorganCircleHeadshot.png",
+    "natural": {
+      "w": 1250,
+      "h": 1250
+    },
+    "renditions": [
+      {
+        "w": 300,
+        "h": 300,
+        "file": "assets/derived/img.team.morgan--300.webp"
+      },
+      {
+        "w": 620,
+        "h": 620,
+        "file": "assets/derived/img.team.morgan--620.webp"
+      }
+    ]
+  },
+  "img.team.group.wide": {
+    "source": "assets/source/IDGroupPhotoFinal-scaled.jpg",
+    "natural": {
+      "w": 2560,
+      "h": 1896
+    },
+    "renditions": [
+      {
+        "w": 1200,
+        "h": 514,
+        "file": "assets/derived/img.team.group.wide--1200.webp"
+      },
+      {
+        "w": 1800,
+        "h": 771,
+        "file": "assets/derived/img.team.group.wide--1800.webp"
+      },
+      {
+        "w": 2400,
+        "h": 1028,
+        "file": "assets/derived/img.team.group.wide--2400.webp"
+      }
+    ]
+  },
+  "img.work.microscopy": {
+    "source": "assets/source/plaque-microscopy-2.png",
+    "natural": {
+      "w": 512,
+      "h": 309
+    },
+    "renditions": [
+      {
+        "w": 512,
+        "h": 309,
+        "file": "assets/derived/img.work.microscopy--512.webp"
+      }
+    ]
+  },
+  "img.hero.landscape": {
+    "source": "assets/source/HomepagePicCrop-scaled.jpg",
+    "natural": {
+      "w": 2560,
+      "h": 976
+    },
+    "renditions": [
+      {
+        "w": 1200,
+        "h": 458,
+        "file": "assets/derived/img.hero.landscape--1200.webp"
+      },
+      {
+        "w": 1800,
+        "h": 686,
+        "file": "assets/derived/img.hero.landscape--1800.webp"
+      },
+      {
+        "w": 2560,
+        "h": 976,
+        "file": "assets/derived/img.hero.landscape--2560.webp"
+      }
+    ]
+  },
+  "img.hero.landscape.tall": {
+    "source": "assets/source/HomepagePicCrop-scaled.jpg",
+    "natural": {
+      "w": 2560,
+      "h": 976
+    },
+    "renditions": [
+      {
+        "w": 800,
+        "h": 600,
+        "file": "assets/derived/img.hero.landscape.tall--800.webp"
+      },
+      {
+        "w": 1200,
+        "h": 900,
+        "file": "assets/derived/img.hero.landscape.tall--1200.webp"
+      }
+    ]
+  }
+}

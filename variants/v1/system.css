@@ -1,0 +1,49 @@
+/* v1 — Consultation Record
+   Grid row:    ratio 1.2 · radius 10 · container 1280 · gap 96 · restrained
+   Prohibition: no full-bleed photograph above the fold
+   Grounded in: grid only
+
+   Palette mapping, re-keyed from the locked hexes and re-measured for THIS
+   mapping (the brand lock's ratios are for its own default and do not carry):
+     ink   slate-900 on paper   17.06   body and headings
+     muted slate-700 on paper    9.90   secondary — NOT slate-400, which is 2.45
+     ink   slate-900 on paper-2 15.42   on the recessed surface
+     muted slate-700 on paper-2  8.95
+     accent blue-deep on paper   6.41   links and the accent rule
+     paper on blue-deep          6.41   the primary button
+   Accent budget: 3 painted instances — hero button, philosophy rule, closing button. */
+:root{
+  --ratio:1.2;
+  --t-xs:.694rem; --t-sm:.833rem; --t-base:1rem; --t-md:1.2rem;
+  --t-lg:1.44rem; --t-xl:1.728rem; --t-2xl:2.074rem;
+  --t-display:clamp(2.074rem,1.2rem + 2.6vw,2.986rem);
+  --lh-tight:1.14; --lh-body:1.62; --tr-display:-0.018em; --tr-body:0;
+  --measure:64ch;
+
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px;
+  --s-6:32px; --s-7:48px; --s-8:64px;
+  --section-gap:96px; --card-pad:28px; --element-gap:20px;
+
+  --r-button:10px; --r-card:10px; --r-input:10px; --r-image:10px;
+  --hairline:1px; --bw-2:2px;
+  --shadow-1:0 2px 4px rgba(15,23,42,.06), 0 8px 24px rgba(15,23,42,.07);
+  --shadow-2:0 2px 4px rgba(15,23,42,.08), 0 18px 44px rgba(15,23,42,.10);
+
+  --container:1280px; --container-wide:1560px; --container-ultra:1840px; --gutter:32px;
+
+  --d-fast:200ms; --d-base:280ms; --d-slow:360ms;
+  --ease-out:cubic-bezier(.22,.61,.36,1); --ease-inout:cubic-bezier(.4,0,.2,1);
+  --stagger:60ms;
+
+  --ground:var(--paper);
+  --surface:var(--paper-2);
+  --ink:var(--slate-900);
+  --ink-muted:var(--slate-700);
+  --accent:var(--blue-deep);
+  --on-accent:var(--paper);
+  --rule:color-mix(in srgb, var(--slate-900) 14%, transparent);
+  --rule-strong:color-mix(in srgb, var(--slate-900) 26%, transparent);
+}
+@media (prefers-reduced-motion:reduce){
+  :root{ --d-fast:1ms; --d-base:1ms; --d-slow:1ms; --stagger:0ms; }
+}

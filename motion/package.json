@@ -1,0 +1,13 @@
+{
+  "name": "integrative-dentistry-motion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Remotion project for Integrative Dentistry. Sources only — node_modules is not part of the deliverable; run `npm install` to restore it.",
+  "scripts": { "studio": "remotion studio", "render": "node render.mjs" },
+  "dependencies": {
+    "@remotion/cli": "4.0.398",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.398"
+  }
+}

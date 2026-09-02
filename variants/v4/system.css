@@ -1,0 +1,51 @@
+/* v4 — Dispensary
+   Grid row:    ratio 1.125 · radius 999/16 · container 1600 · gap 160 · active
+   Prohibition: no border anywhere — separation by surface only
+   Grounded in: grid only
+
+   Palette mapping, re-keyed and re-measured for THIS mapping:
+     ink    paper on slate-900    17.06   body and headings
+     ink    paper on slate-800    13.98   on a card
+     muted  slate-400 on slate-900 6.96   secondary
+     muted  slate-400 on slate-800 5.71   secondary on a card
+     accent blue on slate-900      4.85   the section eyebrows
+     accent blue on ink-black      5.34   the eyebrow inside a recessed panel
+     ink-black on blue             5.34   the primary button's label
+   blue on slate-800 measures 3.98 — large text and UI only. That single number
+   decides where the accent may and may not go in this variant: the eyebrows sit
+   on the ground and on the recess, never on a card, and every numeral, marker
+   and disclosure glyph that would have been blue is muted ink instead.
+   Accent budget: 2 — the primary button and the section eyebrows. */
+:root{
+  --ratio:1.125;
+  --t-xs:.79rem; --t-sm:.889rem; --t-base:1.0625rem; --t-md:1.195rem;
+  --t-lg:1.345rem; --t-xl:1.513rem; --t-2xl:1.702rem;
+  --t-display:clamp(1.702rem,1.1rem + 1.9vw,2.421rem);
+  --lh-tight:1.2; --lh-body:1.68; --tr-display:-0.006em; --tr-body:0;
+  --measure:62ch;
+
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:20px; --s-5:28px;
+  --s-6:40px; --s-7:64px; --s-8:96px;
+  --section-gap:160px; --card-pad:36px; --element-gap:24px;
+
+  --r-button:999px; --r-card:16px; --r-input:999px; --r-image:16px;
+  --hairline:0; --bw-2:2px;   /* no borders anywhere: this is the prohibition */
+  --shadow-1:none; --shadow-2:none;
+
+  --container:1600px; --container-wide:1880px; --container-ultra:2200px; --gutter:40px;
+
+  --d-fast:380ms; --d-base:520ms; --d-slow:680ms;
+  --ease-out:cubic-bezier(.2,.8,.2,1); --ease-inout:cubic-bezier(.6,0,.2,1);
+  --stagger:70ms;
+
+  --ground:var(--slate-900);
+  --surface:var(--slate-800);
+  --recess:var(--ink-black);
+  --ink:var(--paper);
+  --ink-muted:var(--slate-400);
+  --accent:var(--blue);
+  --on-accent:var(--ink-black);
+}
+@media (prefers-reduced-motion:reduce){
+  :root{ --d-fast:1ms; --d-base:1ms; --d-slow:1ms; --stagger:0ms; }
+}

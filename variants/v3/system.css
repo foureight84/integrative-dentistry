@@ -1,0 +1,54 @@
+/* v3 — The Reference
+   Grid row:    ratio 1.5 · radius 2 · container 1120 · gap 64 · near-still
+   Prohibition: no shadow; nothing animates position
+   Grounded in: grid only
+
+   Palette mapping, re-keyed and re-measured for THIS mapping:
+     ink    slate-900 on paper-2  15.42   body and headings
+     muted  slate-700 on paper-2   8.95   secondary
+     ink    slate-900 on paper    17.06   on the raised sheet
+     muted  slate-700 on paper     9.90
+     accent blue-deep on paper-2   5.79   one instance: the primary button's fill
+     paper on blue-deep            6.41   its label
+   Accent budget: ONE blue fill per page, on that page's single most important
+   action — the hero button on the front page, the masthead button everywhere
+   else. Every other control is a line button, and every rule, marker and active
+   state is drawn in the ink. A page with one blue thing on it has an answer to
+   "where do I press"; a page with four has a colour scheme. */
+:root{
+  --ratio:1.5;
+  --t-xs:.667rem; --t-sm:.75rem; --t-base:1rem; --t-md:1.5rem;
+  --t-lg:2.25rem; --t-xl:3.375rem;
+  --t-display:clamp(2.25rem,1.4rem + 2.6vw,3.375rem);
+  --lh-tight:1.1; --lh-body:1.55; --tr-display:-0.012em; --tr-body:0;
+  --measure:66ch;
+
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px;
+  --s-6:28px; --s-7:40px; --s-8:56px;
+  --section-gap:64px; --element-gap:16px;
+
+  --r-button:2px; --r-card:2px; --r-input:2px; --r-image:2px;
+  --hairline:1px; --bw-2:2px;
+  --shadow-1:none; --shadow-2:none;
+
+  /* The base is deliberately narrow — this is a reference document and it is
+     read at 1120. The ultra step is not a change of mind: above 2400px a sheet
+     that stays at 1520 is a strip in a field, and the surround stops reading as
+     a margin at all. */
+  --container:1120px; --container-wide:1320px; --container-ultra:1880px; --gutter:32px;
+
+  --d-fast:80ms; --d-base:120ms; --d-slow:160ms;
+  --ease-out:linear; --ease-inout:linear; --stagger:30ms;
+
+  --ground:var(--paper-2);
+  --surface:var(--paper);
+  --ink:var(--slate-900);
+  --ink-muted:var(--slate-700);
+  --accent:var(--blue-deep);
+  --on-accent:var(--paper);
+  --rule:color-mix(in srgb, var(--slate-900) 20%, transparent);
+  --rule-strong:color-mix(in srgb, var(--slate-900) 42%, transparent);
+}
+@media (prefers-reduced-motion:reduce){
+  :root{ --d-fast:1ms; --d-base:1ms; --d-slow:1ms; --stagger:0ms; }
+}

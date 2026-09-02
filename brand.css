@@ -1,0 +1,36 @@
+/* Integrative Dentistry — identity tokens.
+   Byte-identical in every variant. Colours, typefaces and the focus ring only.
+   Geometry (scale, spacing, radius, elevation, container, durations) lives in
+   variants/vN/system.css, because that is the only material art direction has.
+
+   The palette is a CLOSED SET of source hexes, from colors.csv:84
+   ("Star white + launch blue"), chosen in the wizard and gated on measured
+   contrast and on measured harmony against the practice's own photography
+   (canonical imagery 82 deg; blue reads complementary).
+
+   A variant re-keys which hex plays ground, ink and accent, and may derive
+   tints and shades from them with color-mix. No variant adds a hue. */
+
+:root {
+  /* Source hexes — the closed set. Named by colour, never by role, so a
+     variant cannot inherit someone else's role mapping by accident. */
+  --paper:      #F8FAFC;  /* star white */
+  --paper-2:    #E9EFF6;  /* derived: the recessed tint of paper */
+  --slate-400:  #94A3B8;
+  --slate-700:  #334155;
+  --slate-800:  #1E293B;
+  --slate-900:  #0F172A;
+  --blue:       #3B82F6;  /* launch blue */
+  --blue-deep:  #1D4ED8;  /* derived shade: the text-bearing sibling of blue */
+  --ink-black:  #0B0B10;
+  --carbon:     #1E1E23;
+  --carbon-2:   #232328;
+  --danger:     #EF4444;
+
+  /* Typefaces. Families only — every size is per variant. */
+  --font-display: 'Poppins', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Open Sans', 'Helvetica Neue', Arial, system-ui, sans-serif;
+
+  /* Focus ring. Never removed, never per variant. */
+  --focus: var(--blue);
+}

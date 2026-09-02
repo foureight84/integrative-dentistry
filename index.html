@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Integrative Dentistry — five directions</title>
+<meta name="description" content="Five art directions on one frozen copy deck and one frozen identity. Review gallery.">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="brand.css">
+<style>
+  /* The gallery is chrome, not a sixth variant. It borrows the identity's
+     typefaces and hexes and nothing else — no variant's geometry, so a card
+     never argues with the thumbnail inside it. Ground is ink-black because the
+     set runs two light and three dark, and only the darkest neutral holds both
+     without tinting either. */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--ink-black);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :where(a, button, summary):focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  img { display: block; max-width: 100%; }
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+
+  /* ---- masthead ---- */
+  header.top { padding: clamp(56px, 10vw, 112px) 0 clamp(40px, 6vw, 72px); }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--slate-400); margin: 0 0 20px;
+  }
+  h1 {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(34px, 6vw, 60px); line-height: 1.06; letter-spacing: -.028em;
+    margin: 0 0 24px; max-width: 15ch;
+  }
+  .lede { font-size: clamp(17px, 2vw, 20px); line-height: 1.6; color: var(--slate-400); max-width: 62ch; margin: 0; }
+  .lede strong { color: var(--paper); font-weight: 600; }
+
+  .facts {
+    display: flex; flex-wrap: wrap; gap: 8px 10px;
+    margin: 36px 0 0; padding: 0; list-style: none;
+  }
+  .facts li {
+    font-size: 12.5px; letter-spacing: .02em; color: var(--slate-400);
+    border: 1px solid color-mix(in srgb, var(--paper) 16%, transparent);
+    padding: 5px 12px; border-radius: 999px; white-space: nowrap;
+  }
+
+  /* ---- the five ---- */
+  .set { display: grid; gap: clamp(28px, 4vw, 44px); padding-bottom: clamp(56px, 8vw, 96px); }
+
+  .card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: clamp(24px, 3vw, 40px);
+    align-items: start;
+    padding-top: clamp(28px, 4vw, 44px);
+    border-top: 1px solid color-mix(in srgb, var(--paper) 14%, transparent);
+  }
+  .card:first-child { border-top: 0; padding-top: 0; }
+
+  .shot {
+    display: block; position: relative;
+    border-radius: 6px; overflow: hidden;
+    background: var(--carbon);
+    border: 1px solid color-mix(in srgb, var(--paper) 12%, transparent);
+    transition: border-color 240ms ease, transform 240ms ease;
+  }
+  .shot img { width: 100%; height: auto; aspect-ratio: 1440 / 900; object-fit: cover; }
+  .shot:hover { border-color: color-mix(in srgb, var(--paper) 34%, transparent); transform: translateY(-2px); }
+
+  .n {
+    font-family: var(--font-display); font-weight: 600; font-size: 12px;
+    letter-spacing: .16em; color: var(--slate-400); margin: 0 0 10px;
+  }
+  h2 {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(23px, 2.6vw, 31px); line-height: 1.15; letter-spacing: -.022em;
+    margin: 0 0 14px;
+  }
+  h2 a { text-decoration: none; }
+  h2 a:hover { color: var(--blue); }
+  .dir { margin: 0 0 22px; color: var(--slate-400); font-size: 15.5px; line-height: 1.62; }
+
+  /* Axis readout: term/definition pairs, because they are labels on a value and
+     not sections a reader could navigate to. */
+  dl.axes {
+    margin: 0 0 22px; display: grid;
+    grid-template-columns: auto 1fr; gap: 7px 16px;
+    font-size: 13.5px;
+  }
+  dl.axes dt { color: var(--slate-400); letter-spacing: .02em; }
+  dl.axes dd { margin: 0; color: var(--paper); font-variant-numeric: tabular-nums; }
+
+  .rule { margin: 0 0 20px; font-size: 13.5px; color: var(--slate-400); }
+  .rule b { color: var(--paper); font-weight: 600; }
+
+  .pages { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .pages a {
+    display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .01em;
+    text-decoration: none; padding: 7px 14px; border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  }
+  .pages a:hover { background: var(--paper); color: var(--ink-black); border-color: var(--paper); }
+  .pages a.primary { background: var(--blue); border-color: var(--blue); color: var(--ink-black); }
+  .pages a.primary:hover { background: var(--paper); border-color: var(--paper); }
+
+  /* ---- comparison ---- */
+  section.grid-table { padding: clamp(48px, 7vw, 88px) 0 clamp(64px, 9vw, 112px); border-top: 1px solid color-mix(in srgb, var(--paper) 14%, transparent); }
+  h3 {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(21px, 2.4vw, 28px); letter-spacing: -.02em; margin: 0 0 10px;
+  }
+  section.grid-table p { color: var(--slate-400); max-width: 66ch; margin: 0 0 32px; font-size: 15.5px; }
+  .scroller { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 860px; font-size: 13.5px; }
+  th, td { text-align: left; padding: 12px 16px 12px 0; vertical-align: top; border-bottom: 1px solid color-mix(in srgb, var(--paper) 12%, transparent); }
+  thead th {
+    font-family: var(--font-display); font-weight: 600; font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--slate-400);
+    border-bottom-color: color-mix(in srgb, var(--paper) 26%, transparent);
+  }
+  tbody th { font-family: var(--font-display); font-weight: 600; white-space: nowrap; font-size: 14px; }
+  tbody td { color: var(--slate-400); font-variant-numeric: tabular-nums; }
+
+  footer { padding: 0 0 clamp(56px, 8vw, 96px); color: var(--slate-400); font-size: 13.5px; }
+  footer p { margin: 0 0 8px; max-width: 72ch; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; color: var(--paper); }
+
+  @media (max-width: 900px) {
+    .card { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">Integrative Dentistry · Seattle</p>
+    <h1>Five directions, one deck</h1>
+    <p class="lede">Every variant below carries <strong>the same words and the same identity</strong> — the copy deck and the brand hexes are frozen. What changes is the art direction: ground, ratio, radius, rhythm, motion, and the one thing each variant is forbidden to do.</p>
+    <ul class="facts">
+      <li>5 variants · 12 pages</li>
+      <li>Copy frozen</li>
+      <li>Identity frozen</li>
+      <li>Thumbnails shot at 1440×900</li>
+    </ul>
+  </header>
+
+  <main class="set">
+
+    <article class="card">
+      <a class="shot" href="variants/v1/index.html">
+        <img src="assets/derived/thumb.v1--1440.jpg" width="1440" height="900" alt="v1 Consultation Record — a paper page with a contained hero photograph beside the headline.">
+      </a>
+      <div>
+        <p class="n">V1</p>
+        <h2><a href="variants/v1/index.html">Consultation Record</a></h2>
+        <p class="dir">The credible clinical record. A paper page with one soft cast shadow, a single 10px radius everywhere, and a restrained motion band — the variant that looks like a practice that keeps good notes. Nothing on it raises its voice.</p>
+        <dl class="axes">
+          <dt>Ground</dt><dd>paper · slate-900 ink</dd>
+          <dt>Ratio</dt><dd>1.2</dd>
+          <dt>Radius</dt><dd>10, one map</dd>
+          <dt>Rhythm</dt><dd>96 · container 1280</dd>
+          <dt>Motion</dt><dd>restrained 200 · 280 · 360</dd>
+          <dt>Accent</dt><dd>blue-deep, ×3</dd>
+        </dl>
+        <p class="rule"><b>Forbidden:</b> no full-bleed photograph above the fold — which is what forces the type to carry the fold on its own.</p>
+        <ul class="pages">
+          <li><a class="primary" href="variants/v1/index.html">Landing</a></li>
+          <li><a href="variants/v1/practice/index.html">Our Practice</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="variants/v2/index.html">
+        <img src="assets/derived/thumb.v2--1440.jpg" width="1440" height="900" loading="lazy" alt="v2 Still Water — a full-bleed landscape photograph behind the headline on an ink-black page.">
+      </a>
+      <div>
+        <p class="n">V2</p>
+        <h2><a href="variants/v2/index.html">Still Water</a></h2>
+        <p class="dir">One long dark scroll built out of ground, rule and space. The photograph carries the fold, the type carries everything else, and the motion band is the slowest in the set.</p>
+        <dl class="axes">
+          <dt>Ground</dt><dd>ink-black · paper ink</dd>
+          <dt>Ratio</dt><dd>1.333</dd>
+          <dt>Radius</dt><dd>0, everywhere</dd>
+          <dt>Rhythm</dt><dd>128 · container 1440</dd>
+          <dt>Motion</dt><dd>cinematic 700 · 900 · 1200</dd>
+          <dt>Accent</dt><dd>blue, ×2</dd>
+        </dl>
+        <p class="rule"><b>Forbidden:</b> no card, no shadow, no corner radius. Nothing is separated by a box; everything is separated by ground, rule and space.</p>
+        <ul class="pages">
+          <li><a class="primary" href="variants/v2/index.html">One page</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="variants/v3/index.html">
+        <img src="assets/derived/thumb.v3--1440.jpg" width="1440" height="900" loading="lazy" alt="v3 The Reference — a pale document sheet with hairline rules and small-caps labels, no hero photograph.">
+      </a>
+      <div>
+        <p class="n">V3</p>
+        <h2><a href="variants/v3/index.html">The Reference</a></h2>
+        <p class="dir">A reference document, on a sheet. Hairline rules, small-caps labels, a tight 64px rhythm and a near-still motion band. The only one of the five that is consulted rather than scrolled.</p>
+        <dl class="axes">
+          <dt>Ground</dt><dd>paper-2 · slate-900 ink</dd>
+          <dt>Ratio</dt><dd>1.5</dd>
+          <dt>Radius</dt><dd>2</dd>
+          <dt>Rhythm</dt><dd>64 · container 1120</dd>
+          <dt>Motion</dt><dd>near-still 80 · 120 · 160, linear</dd>
+          <dt>Accent</dt><dd>blue-deep, ×1 per page</dd>
+        </dl>
+        <p class="rule"><b>Forbidden:</b> no shadow, and nothing animates position. Every entrance is opacity alone.</p>
+        <ul class="pages">
+          <li><a class="primary" href="variants/v3/index.html">Front</a></li>
+          <li><a href="variants/v3/services/index.html">Services</a></li>
+          <li><a href="variants/v3/practice/index.html">Practice</a></li>
+          <li><a href="variants/v3/visit/index.html">Your Visit</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="variants/v4/index.html">
+        <img src="assets/derived/thumb.v4--1440.jpg" width="1440" height="900" loading="lazy" alt="v4 Dispensary — a slate-900 page with pill buttons and rounded cards beside a cropped hero photograph.">
+      </a>
+      <div>
+        <p class="n">V4</p>
+        <h2><a href="variants/v4/index.html">Dispensary</a></h2>
+        <p class="dir">The loudest variant, and the only one that is genuinely a catalogue. Pill buttons, 16px cards, a 160px rhythm and an active motion band — a page where every boundary is a change of surface because it is not allowed to be a line.</p>
+        <dl class="axes">
+          <dt>Ground</dt><dd>slate-900 · paper ink</dd>
+          <dt>Ratio</dt><dd>1.125</dd>
+          <dt>Radius</dt><dd>999 buttons / 16 cards</dd>
+          <dt>Rhythm</dt><dd>160 · container 1600</dd>
+          <dt>Motion</dt><dd>active 380 · 520 · 680</dd>
+          <dt>Accent</dt><dd>blue, ×4</dd>
+        </dl>
+        <p class="rule"><b>Forbidden:</b> no border, anywhere. Every boundary is a change of surface, which is why the spacing has to do more work than usual.</p>
+        <ul class="pages">
+          <li><a class="primary" href="variants/v4/index.html">Hub</a></li>
+          <li><a href="variants/v4/care/index.html">Care</a></li>
+          <li><a href="variants/v4/practice/index.html">Practice</a></li>
+          <li><a href="variants/v4/visit/index.html">Visit</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="shot" href="variants/v5/index.html">
+        <img src="assets/derived/thumb.v5--1440.jpg" width="1440" height="900" loading="lazy" alt="v5 Chairside — a narrow carbon sheet with a very large display headline beside a rounded photograph.">
+      </a>
+      <div>
+        <p class="n">V5</p>
+        <h2><a href="variants/v5/index.html">Chairside</a></h2>
+        <p class="dir">The quietest and the most typographic. A golden-ratio scale puts the display at four times the body, so hierarchy is carried almost entirely by size — and the page is never more than two columns wide, so there is nowhere for that size to hide.</p>
+        <dl class="axes">
+          <dt>Ground</dt><dd>carbon · paper-2 ink</dd>
+          <dt>Ratio</dt><dd>1.618</dd>
+          <dt>Radius</dt><dd>24</dd>
+          <dt>Rhythm</dt><dd>48 · container 960</dd>
+          <dt>Motion</dt><dd>brisk 160 · 240 · 320</dd>
+          <dt>Accent</dt><dd>blue, ×2</dd>
+        </dl>
+        <p class="rule"><b>Forbidden:</b> never more than two columns — which is what turns twelve services into a run of rows rather than a grid.</p>
+        <ul class="pages">
+          <li><a class="primary" href="variants/v5/index.html">One page</a></li>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <section class="grid-table">
+    <h3>The axis grid</h3>
+    <p>Decided as a table before a line of CSS, so the rows could be read against each other. Every column varies; no pair shares more than four of the nine fingerprinted axes.</p>
+    <div class="scroller" tabindex="0" aria-label="Axis grid, scrollable">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Variant</th><th scope="col">Format</th><th scope="col">Structure</th>
+            <th scope="col">Ratio</th><th scope="col">Radius</th><th scope="col">Container</th>
+            <th scope="col">Gap</th><th scope="col">Motion</th><th scope="col">Ground / ink</th><th scope="col">Accent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">v1 Consultation Record</th><td>landing + detail</td><td>credibility-first</td><td>1.2</td><td>10 soft</td><td>1280 / 1560 / 1840</td><td>96</td><td>restrained</td><td>paper / slate-900</td><td>blue-deep ×3</td></tr>
+          <tr><th scope="row">v2 Still Water</th><td>one-page</td><td>story-scroll</td><td>1.333</td><td>0 flat</td><td>1440 / 1720 / 2040</td><td>128</td><td>cinematic</td><td>ink-black / paper</td><td>blue ×2</td></tr>
+          <tr><th scope="row">v3 The Reference</th><td>multi-page (4)</td><td>problem-first</td><td>1.5</td><td>2 hairline</td><td>1120 / 1320 / 1880</td><td>64</td><td>near-still</td><td>paper-2 / slate-900</td><td>blue-deep ×1</td></tr>
+          <tr><th scope="row">v4 Dispensary</th><td>hub + 3 spokes</td><td>product-first</td><td>1.125</td><td>999 / 16</td><td>1600 / 1880 / 2200</td><td>160</td><td>active</td><td>slate-900 / paper</td><td>blue ×4</td></tr>
+          <tr><th scope="row">v5 Chairside</th><td>one-page</td><td>proof-first</td><td>1.618</td><td>24 pillowed</td><td>960 / 1180 / 1400</td><td>48</td><td>brisk</td><td>carbon / paper-2</td><td>blue ×2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>Every thumbnail is the real page, not a mockup — open any variant and it works: real type, real images, real behavior at every screen size.</p>
+    <p>Pick a direction, or tell us what you’d take from one and leave in another. Nothing here is final.</p>
+  </footer>
+</div>
+
+</body>
+</html>

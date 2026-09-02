@@ -1,0 +1,51 @@
+/* v5 — Chairside
+   Grid row:    ratio 1.618 · radius 24 · container 960 · gap 48 · brisk
+   Prohibition: never more than two columns
+   Grounded in: grid only
+
+   Palette mapping, re-keyed and re-measured for THIS mapping:
+     ink    paper-2 on carbon     14.34   body and headings
+     ink    paper-2 on carbon-2   13.51   on a panel
+     muted  slate-400 on carbon    6.47   secondary
+     muted  slate-400 on carbon-2  6.10   secondary on a panel
+     accent blue on carbon         4.51   the eyebrow, on the ground only
+     ink-black on blue             5.34   the primary button's label
+   blue on carbon-2 is 4.25 — under AA for normal text, so the accent never
+   appears as type on a panel. That one number is why the eyebrows sit on the
+   ground and the panels carry no colour at all.
+   Accent budget: 2 — the primary button and the section eyebrow. */
+:root{
+  --ratio:1.618;
+  --t-xs:.688rem; --t-sm:.75rem; --t-base:1rem; --t-md:1.618rem;
+  --t-lg:2.618rem; --t-xl:4.236rem;
+  --t-display:clamp(2.618rem,1.2rem + 4.4vw,4.236rem);
+  --lh-tight:1.02; --lh-body:1.66; --tr-display:-0.028em; --tr-body:0;
+  --measure:58ch;
+
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:22px;
+  --s-6:30px; --s-7:40px; --s-8:44px;
+  --section-gap:48px; --card-pad:26px; --element-gap:18px;
+
+  --r-button:24px; --r-card:24px; --r-input:24px; --r-image:24px;
+  --hairline:1px; --bw-2:2px;
+  --shadow-1:none; --shadow-2:none;
+
+  --container:960px; --container-wide:1180px; --container-ultra:1400px; --gutter:24px;
+
+  --d-fast:160ms; --d-base:240ms; --d-slow:320ms;
+  --ease-out:cubic-bezier(.3,.7,.4,1); --ease-inout:cubic-bezier(.5,0,.3,1);
+  --stagger:45ms;
+
+  --ground:var(--carbon);
+  --surface:var(--carbon-2);
+  --outer:var(--ink-black);
+  --ink:var(--paper-2);
+  --ink-muted:var(--slate-400);
+  --accent:var(--blue);
+  --on-accent:var(--ink-black);
+  --rule:rgba(233,239,246,.14);
+  --rule-strong:rgba(233,239,246,.34);
+}
+@media (prefers-reduced-motion:reduce){
+  :root{ --d-fast:1ms; --d-base:1ms; --d-slow:1ms; --stagger:0ms; }
+}
